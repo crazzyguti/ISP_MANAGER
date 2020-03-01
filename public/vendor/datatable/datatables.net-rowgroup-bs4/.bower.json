@@ -1,0 +1,48 @@
+{
+  "name": "datatables.net-rowgroup-bs4",
+  "description": "RowGroup for DataTables with styling for [Bootstrap 4](http://getbootstrap.com/)",
+  "main": [
+    "css/rowGroup.bootstrap4.css"
+  ],
+  "keywords": [
+    "row grouping",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Bootstrap 4"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7",
+    "datatables.net-bs4": ">=1.10.13",
+    "datatables.net-rowgroup": ">=1.0.0"
+  },
+  "moduleType": [
+    "globals",
+    "amd",
+    "node"
+  ],
+  "ignore": [
+    "composer.json",
+    "datatables.json",
+    "package.json"
+  ],
+  "authors": [
+    {
+      "name": "SpryMedia Ltd",
+      "homepage": "https://datatables.net"
+    }
+  ],
+  "homepage": "https://datatables.net",
+  "license": "MIT",
+  "version": "1.1.0",
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.1.0",
+    "commit": "924156a3a405c6f7d35741b098266c0d6b6c1a7c"
+  },
+  "_source": "https://github.com/DataTables/Dist-DataTables-RowGroup-Bootstrap4.git",
+  "_target": "^1.1.0",
+  "_originalSource": "datatables.net-rowgroup-bs4",
+  "_direct": true
+}

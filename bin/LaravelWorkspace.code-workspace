@@ -1,0 +1,43 @@
+{
+    "folders": [{
+            "name": "ROOT",
+            "path": "../",
+        },
+        {
+            "name": "config",
+            "path": "../config"
+        },
+        {
+            "name": "model",
+            "path": "../app/"
+        },
+        {
+            "name": "controller",
+            "path": "../app/Http/Controllers/"
+        }, {
+            "name": "view",
+            "path": "../resources/views"
+        },
+        {
+            "name": "public",
+            "path": "../public"
+        },
+        {
+            "name": "vendor",
+            "path": "../public/vendor"
+        },
+        {
+            "name": "database",
+            "path": "../database"
+        },
+        {
+            "name": "routes",
+            "path": "../routes"
+        },
+
+    ],
+    "settings": {
+        "terminal.integrated.cwd": "L:/ISP_MANAGER/bin",
+    },
+
+}
