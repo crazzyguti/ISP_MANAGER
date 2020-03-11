@@ -1,10 +1,11 @@
 <?php
 
 use App\Location;
-use App\Http\Resources\User as UserCollation;
+use App\Http\Resources\UserCollection;
 use App\Http\Resources\Locates as localisCollation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,11 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::group(['prefix' => 'admin', "middleware" => "role:super-admin"], function () {
     Route::resources([
@@ -39,10 +45,10 @@ Route::get("/maps", function () {
     return view("maps.index", ["locales" => $locales]);
 });
 
+
 Route::get('/json', function () {
-    $user = Auth::user();
-    $collection = new UserCollation($user);
-    return $collection;
+    $userCollation = new UserCollection(User::all());
+    return $userCollation;
 });
 
 Route::get('/locates', function () {
@@ -54,4 +60,5 @@ Route::get('/locates', function () {
 
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');

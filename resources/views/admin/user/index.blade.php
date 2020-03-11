@@ -11,53 +11,56 @@
 </style>
 @endsection
 @section('content')
-{{-- <form action="#" onsubmit="return false">
+
+{{--  <h4 class="card-title"><a href="{{url("admin/users/$user->id")}}">{{$user->fullName}}</a></h4>
+<p class="card-text">{{$user->roles->first()}}</p> --}}
+
+<div class="container my-4">
     <div class="row">
         <div class="col">
-            <input type="tel" id="phone" name="phone" class="form-control" value=""
-                pattern="^\+?[0-9]{3}[0-9]{3}[0-9]{4,15}" required>
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>fullName</th>
+                        {{-- <th>LastName</th> --}}
+                        <th>email_phone</th>
+                        <th>gender</th>
+                        <th>created_at</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{-- @foreach ($users as $user)
+
+
+                    <tr>
+                        <td>{{$user->firstName}}</td>
+                    <td>{{$user->lastName}}</td>
+                    <td>{{$user->email_phone}}</td>
+                    <td>{{$user->created_at}}</td>
+                    </tr>
+
+
+                    @endforeach --}}
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>fullName</th>
+                        {{-- <th>LastName</th> --}}
+                        <th>email_phone</th>
+                        <th>gender</th>
+                        <th>created_at</th>
+
+                    </tr>
+                </tfoot>
+            </table>
         </div>
-        <div class="col">
-            <input type="button" value="checkphone" id="checkphone">
-        </div>
+
+        {{-- @include('vendor.pagination.bootstrap-4') --}}
+
     </div>
-</form> --}}
-
-{{-- {{$userGroups}} --}}
-
-
-<div class="row">
-
-
-    @foreach ($users as $user)
-
-
-
-    <div class="row">
-            <div class="col">
-                <div class="card">
-                    {{-- <img class="card-img-top w-100" data-src="holder.js/200x200/?text=Image cap" alt="Card image cap"> --}}
-                    <div class="card-body">
-                        <h4 class="card-title"><a href="{{url("users/$user->id")}}">{{$user->fullName}}</a></h4>
-                        <p class="card-text">{{$user->roles->first()->name}}</p>
-                        <p class="card-text">{{$user->getPermission()}}</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item list-group-item-action list-group-item-primary">{{$user->firstName}}</li>
-                        <li class="list-group-item list-group-item-action list-group-item-warning">{{$user->lastName}}</li>
-                        <li class="list-group-item list-group-item-action list-group-item-danger">{{$user->created_at}}</li>
-                        <li class="list-group-item list-group-item-action list-group-item-info">{{$user->email_phone}}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    @endforeach
-
-    @include('vendor.pagination.bootstrap-4')
-
 </div>
-
 
 
 
@@ -65,26 +68,48 @@
 @endsection
 @section('script')
 <script>
-    const url = '{{$phoneValidatorURL}}';
-    const reqData = {
-        method: "GET",
-        body: {
-            phone: "+90 534 545 81 76"
-        }
-    };
+    $(document).ready(function () {
+        // $('#example').DataTable({
+        //     //responsive: true,
+        //     //dom: 'Bfrtip',
+        //     "ajax": `{{url('/json')}}`,
+        //     buttons: [{
+        //         extend: 'copy',
+        //         text: 'Copy current page',
+        //         exportOptions: {
+        //             modifier: {
+        //                 page: 'current'
+        //             }
+        //         }
+        //     }]
+        // });
 
-    $("#checkphone").on("click", function (e) {
-        var phone = $("#phone").val();
-        var data = {
-            phone
-        }
-        $.ajax({
-            url,
-            method: reqData.method,
-            data
-        }).done(function (responce) {
-            console.log(responce);
+        var table = $('#example').DataTable({
+            ajax: `{{url('/json')}}`,
+            responsive: true,
+            "columns": [{
+                    "data": "fullName"
+                },
+                {
+                    "data": "email_phone"
+                },
+                {
+                    "data": "gender"
+                },
+                {
+                    "data": "created_at"
+                }
+            ],
+            "dom": '<"top"i>rt<"bottom"flp><"clear">'
+
         });
-    })
+
+        $("<button>TR</button>").appendTo("div.toolbar");
+        table.on('xhr', function () {
+            var json = table.ajax.json();
+            console.log(json.data);
+            //alert(json.data.length + ' row(s) were loaded');
+        });
+    });
 </script>
 @endsection

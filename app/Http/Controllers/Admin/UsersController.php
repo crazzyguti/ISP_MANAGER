@@ -15,23 +15,29 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(Request $request)
     {
+        $keyword = $request->get('search');
+        $perPage = 25;
 
-        $users = User::with('roles')->get();
-        $userGroups = User::select(DB::raw('count(*) as user_count, gender'))->where('gender', '<>', 1)->groupBy('gender')->get();
-        $paginator = User::paginate(15);
-        $phoneValidatorURL = env("PHONE_VALIDATOR");
-        $locations = Location::all();
-        $params = [
-            "users" => $users,
-            "userGroups" => $userGroups,
-            "paginator" => $paginator,
-            "phoneValidatorURL" => $phoneValidatorURL,
-            "locations" => $locations
-        ];
+        if (!empty($keyword)) {
+            $this->users = $users = User::where('firtName', 'LIKE', "%$keyword%")
+                ->orWhere('lastName', 'LIKE', "%$keyword%")
+                ->orWhere('email_phone', 'LIKE', "%$keyword%")
+                ->orWhere('gender', 'LIKE', "%$keyword%")
+                ->orWhere('birthday', 'LIKE', "%$keyword%")
+                ->latest()->paginate($perPage);
+        } else {
+            $this->users = $users = User::latest()->paginate($perPage);
+        }
 
-        return view("admin.user.index", $params);
+        return view('admin.user.index', compact('users'));
+    }
+
+    public function GetUsers()
+    {
+        return $this->user = User::all();
     }
 
     /**
@@ -41,7 +47,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.user.create");
     }
 
     /**
@@ -52,7 +58,13 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestData = $request->all();
+
+        dd($requestData);
+
+        User::create($requestData);
+
+        return redirect('admin/users')->with('flash_message', 'User added!');
     }
 
     /**
@@ -69,7 +81,7 @@ class UsersController extends Controller
             "users" => $users,
             "locations" => $locations
         ];
-        return view("admin.user.show",$params);
+        return view("admin.user.show", $params);
     }
 
     /**
@@ -80,7 +92,9 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $user = User::findOrFail($user);
+
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -92,7 +106,12 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $requestData = $request->all();
+
+        $dUser = User::findOrFail($user);
+        $dUser->update($requestData);
+
+        return redirect('admin/users')->with('flash_message', 'User is Updated!');
     }
 
     /**
@@ -103,6 +122,8 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        User::destroy($user);
+
+        return redirect('admin/users')->with('flash_message', 'User deleted!');
     }
 }

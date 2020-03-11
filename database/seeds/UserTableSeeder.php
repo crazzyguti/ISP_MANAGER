@@ -5,8 +5,6 @@ use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 
 class UserTableSeeder extends Seeder
@@ -32,8 +30,6 @@ class UserTableSeeder extends Seeder
             'remember_token' => Str::random(10),
         ];
         $user =  User::create($user);
-        //$user->roles()->attach($admin->id, ['created_at' => now(), 'updated_at' => now()]);
-//
-        //factory(User::class,10)->create();
+        $user->assignRole('super-admin');
     }
 }

@@ -30,8 +30,7 @@ class RolesAndPermissionsSeeder extends Seeder
        $role->givePermissionTo('edit articles');
 
        // or may be done by chaining
-       $role = Role::create(['name' => 'moderator'])
-           ->givePermissionTo(['publish articles', 'unpublish articles']);
+       $role = Role::create(['name' => 'moderator'])->givePermissionTo(['publish articles', 'unpublish articles']);
 
        $role = Role::create(['name' => 'super-admin']);
        $role->givePermissionTo(Permission::all());

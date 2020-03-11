@@ -37,7 +37,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime:Y-m-d',
+        'created_at' => 'datetime:Y-m-d',
+        'updated_at' => 'datetime:Y-m-d',
+    ];
+
+
+    protected $dates = [
+        'seen_at',
     ];
 
     public function getFirstNameAttribute($value)
@@ -82,4 +89,16 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Post');
     }
+
+    public function device()
+    {
+        return $this->hasMany('App\Device');
+    }
+
+    // public function roles()
+    // {
+    //     return $this->belongsToMany('App\Role')->withTimestamps();
+    // }
+
+
 }

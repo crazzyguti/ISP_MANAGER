@@ -1,0 +1,1 @@
+require('mdbootstrap/js/mdb');

@@ -47,7 +47,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestData = $request->all();
+
+        Category::create($requestData);
+
+        return redirect('admin/category')->with('flash_message', 'Post added!');
     }
 
     /**
@@ -69,7 +73,10 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $fields = [
+            "categories" => Category::find($category)
+        ];
+        return view("admin.category.edit",$fields);
     }
 
     /**
