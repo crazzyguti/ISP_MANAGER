@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\User;
+
 use App\Console\Commands\PublicFiles;
 use App\Console\Commands\CreateView;
 use App\Console\Commands\SendEmails;

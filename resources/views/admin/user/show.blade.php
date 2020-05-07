@@ -10,17 +10,16 @@
                         <div class="card-title mb-4">
                             <div class="d-flex justify-content-start">
                                 <div class="image-container">
-                                    <img src="http://placehold.it/150x150" id="imgProfile"
+                                    <img src="https://i.picsum.photos/id/222/150/150.jpg" id="imgProfile"
                                         style="width: 150px; height: 150px" class="img-thumbnail" />
                                     <div class="middle">
-                                        <input type="button" class="btn btn-secondary" id="btnChangePicture"
-                                            value="Change" />
+                                        <input type="button" class="btn btn-secondary" id="btnChangePicture"  value="Change" />
                                         <input type="file" style="display: none;" id="profilePicture" name="file" />
                                     </div>
                                 </div>
                                 <div class="userData ml-3">
-                                    <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a
-                                            href="javascript:void(0);">Some Name</a></h2>
+                                    <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">
+                                    <a href="{{url('/admin/users/' . $users->id )}}">{{$users->fullName}}</a></h2>
                                     <h6 class="d-block"><a href="javascript:void(0)">1,500</a> Video Uploads</h6>
                                     <h6 class="d-block"><a href="javascript:void(0)">300</a> Blog Posts</h6>
                                 </div>
@@ -36,8 +35,8 @@
                                 <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" id="basicInfo-tab" data-toggle="tab"
-                                            href="#basicInfo" role="tab" aria-controls="basicInfo"
-                                            aria-selected="true">Basic Info</a>
+                                        href="#basicInfo" role="tab" aria-controls="basicInfo"
+                                        aria-selected="true">Потребителско Информация</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="connectedServices-tab" data-toggle="tab"

@@ -72,7 +72,7 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         $locations = Location::all();
-        return view('auth.register',["locations" => $locations]);
+        return view('auth.register', ["locations" => $locations]);
     }
 
     /**
@@ -99,7 +99,4 @@ class RegisterController extends Controller
             ->attach(Role::where('name', 'Administrator')->first());
         return $user;
     }
-
-
-
 }

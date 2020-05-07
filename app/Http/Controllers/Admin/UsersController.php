@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Location;
 
 class UsersController extends Controller
@@ -59,8 +58,6 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $requestData = $request->all();
-
-        dd($requestData);
 
         User::create($requestData);
 

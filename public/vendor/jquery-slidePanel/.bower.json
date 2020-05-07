@@ -1,0 +1,43 @@
+{
+  "name": "jquery-slidePanel",
+  "version": "0.3.5",
+  "description": "A jquery plugin that show a slide panel on side.",
+  "main": "dist/jquery-slidePanel.js",
+  "copyright": "amazingSurge",
+  "license": "LGPL-3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "demo",
+    "gulp",
+    "CONTRIBUTING.md",
+    "manifest.json",
+    "karma.conf.js",
+    "config.js",
+    "package.json",
+    "gulpfile.babel.js",
+    "tests"
+  ],
+  "homepage": "https://github.com/amazingSurge/jquery-slidePanel",
+  "authors": [
+    "amazingSurge <amazingSurge@gmail.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "dependencies": {
+    "jquery": ">=2.2.0"
+  },
+  "_release": "0.3.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.5",
+    "commit": "271e018e28a10f9cdabbebba50befb6aadf12e8b"
+  },
+  "_source": "https://github.com/amazingSurge/jquery-slidePanel.git",
+  "_target": "^0.3.5",
+  "_originalSource": "jquery-slidePanel",
+  "_direct": true
+}

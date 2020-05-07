@@ -1,17 +1,10 @@
-Add-Type -AssemblyName System.Speech
-$SpeechSynthesizer = New-Object -TypeName System.Speech.Synthesis.SpeechSynthesizer
-$SpeechSynthesizer.Speak('Hello, World!');
+Add-Type -AssemblyName System.speech
+$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer
+$speak.SetOutputToDefaultAudioDevice()
+$speak.Rate = 0.1;
 
 
+$speak.Speak("My favorite color is blue.");
+$speak.AddLexicon( ".\Blue.pls", "application/pls+xml");
+$speak.Speak("Hi Beytula How are you?");
 
-$Timer = New-Object Timers.Timer
-$Timer.Interval = 500
-$Timer.Enabled = $True
-$objectEventArgs = @{
-    InputObject = $Timer
-    EventName = 'Elapsed'
-    SourceIdentifier = 'Timer.Random'
-    Action = {$Random = Get-Random -Min 0 -Max 100}
-}
-$Job = Register-ObjectEvent @objectEventArgs
-$Job | Format-List -Property *

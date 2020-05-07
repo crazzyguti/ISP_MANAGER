@@ -1,9 +1,12 @@
 @php
     $styles = [
         "css/app.css",
+        //"down/bootstrap-extend.min.css",
         "css/style.css",
-        "vendor/datatable/datatables.min.css"
+        // "vendor/datatable/datatables.min.css"
+        // "css/reasy-ui.css"
     ];
+
 @endphp
 
 @foreach ($styles as $item)

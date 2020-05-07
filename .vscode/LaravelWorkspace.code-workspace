@@ -1,0 +1,70 @@
+{
+    "folders": [
+        {
+            "name": "ROOT",
+            "path": "../"
+        },
+        {
+            "name": "config",
+            "path": "../config"
+        },
+        {
+            "name": "model",
+            "path": "../app/"
+        },
+        {
+            "name": "controller",
+            "path": "../app/Http/Controllers/"
+        },
+        {
+            "name": "view",
+            "path": "../resources/views"
+        },
+        {
+            "name": "public",
+            "path": "../public"
+        },
+        {
+            "name": "vendor",
+            "path": "../public/vendor"
+        },
+        {
+            "name": "database",
+            "path": "../database"
+        },
+        {
+            "name": "routes",
+            "path": "../routes"
+        }
+    ],
+    "settings": {
+        "git.ignoreLimitWarning": true,
+        "terminal.integrated.cwd": "L:/ISP_MANAGER",
+        "terminal.integrated.env.windows": {
+             "PATH": "${env:PATH};L:/ISP_MANAGER/bin"
+        },
+    },
+    "launch": {
+        "configurations": [
+        {
+            "name": "PowerShell Attach Interactive Session Runspace",
+            "type": "PowerShell",
+            "request": "attach",
+            "processId": "12468"
+        }
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "echo",
+                "type": "shell",
+                "command": "echo Hello"
+            }
+        ]
+    },
+
+
+}
+// py,php,js,html,css,sass,node,bat,

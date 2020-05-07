@@ -9,8 +9,16 @@ class Location extends Model
     protected $table = "locations";
     protected $guarded = [];
 
-    public function user()
+    public function users()
     {
-        return $this->hasMany("App\User", "location_id", "id");
+        return $this->belongsTo("App\User","id","id");
+    }
+
+    /**
+     * Get all of the post's comments.
+     */
+    public function markers()
+    {
+        return $this->morphMany('App\Marker', 'markerable');
     }
 }

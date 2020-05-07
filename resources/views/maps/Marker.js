@@ -1,7 +1,9 @@
 class Marker{
     constructor(){
-        this.name = "";
+        this.id = "";
         this.icon = "";
+        this.label = "";
+
     }
 
     create(){

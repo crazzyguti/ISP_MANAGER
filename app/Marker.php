@@ -9,9 +9,9 @@ class Marker extends Model
     protected $table = "markers";
     protected $guarded = [];
 
-    public function markers()
+    public function markerable()
     {
-        return $this->belongsToMany('App\Marker', 'location_marker', 'location_id', 'id');
+        return $this->morphTo();
     }
 
 }

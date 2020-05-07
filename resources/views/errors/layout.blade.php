@@ -1,66 +1,57 @@
-@extends('layouts.app2')
-{{-- show error using sidebar layout if looged in AND on an admin page; otherwise use a blank page --}}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@yield('css')
+        <title>@yield('title')</title>
 
-@php
-  $title = 'Error '. $error_number;
-@endphp
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-@section('after_styles')
-  <style>
-    .error_number {
-      font-size: 156px;
-      font-weight: 600;
-      color: #dd4b39;
-      line-height: 100px;
-    }
-    .error_number small {
-      font-size: 56px;
-      font-weight: 700;
-    }
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
 
-    .error_number hr {
-      margin-top: 60px;
-      margin-bottom: 0;
-      border-top: 5px solid #dd4b39;
-      width: 50px;
-    }
+            .full-height {
+                height: 100vh;
+            }
 
-    .error_title {
-      margin-top: 40px;
-      font-size: 36px;
-      color: #B0BEC5;
-      font-weight: 400;
-    }
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
 
-    .error_description {
-      font-size: 24px;
-      color: #B0BEC5;
-      font-weight: 400;
-    }
-  </style>
-@endsection
+            .position-ref {
+                position: relative;
+            }
 
-@section('content')
-<div class="row">
-  <div class="col-md-12 text-center">
-    <div class="error_number m-t-80">
-      <small>ERROR</small><br>
-      {{ $error_number }}
-      <hr>
-    </div>
-    <div class="error_title">
-      @yield('title')
-    </div>
-    <div class="error_description">
-      <small>
-        @yield('description')
-     </small>
-    </div>
-  </div>
-</div>
-@endsection
+            .content {
+                text-align: center;
+            }
 
-
-
+            .title {
+                font-size: 36px;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="content">
+                <div class="title">
+                    @yield('message')
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

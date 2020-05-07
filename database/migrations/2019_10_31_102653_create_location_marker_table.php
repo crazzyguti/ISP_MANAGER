@@ -17,9 +17,11 @@ class CreateLocationMarkerTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger("location_id");
             $table->unsignedBigInteger("marker_id");
+            $table->unsignedBigInteger("user_id");
             $table->timestamps();
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade')->onUpdate("cascade");;
             $table->foreign('marker_id')->references('id')->on('markers')->onDelete('cascade')->onUpdate("cascade");;
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate("cascade");;
         });
     }
 

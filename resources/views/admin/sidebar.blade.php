@@ -1,34 +1,36 @@
-@php
-
-$url = $url ?? url()->current();;
-
-@endphp
 
 <div class="col-md-3">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Sidebar</h4>
-            <p class="card-text">{{$url}}</p>
+            <h4 class="card-title">{{__("Sidebar")}}</h4>
+            <p class="card-text"></p>
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="list-group">
             <li class="list-group-item {{ (request()->is('admin')) ? 'active' : '' }}" role="presentation">
                 <a class="stretched-link" href="{{ url('/admin') }}">
-                    {{__("Dashboard")}}
+                    {{__("Admin Panel")}}
                 </a>
             </li>
             <li class="list-group-item {{ (request()->is('admin/category')) ? 'active' : '' }}" role="presentation">
                 <a class="stretched-link" href="{{ url('/admin/category') }}">
-                    Categories
+                    {{__("Categories")}}
                 </a>
             </li>
             <li class="list-group-item {{ (request()->is('admin/device')) ? 'active' : '' }}" role="presentation">
                 <a class="stretched-link" href="{{ url('/admin/device') }}">
-                    Devices
+                    {{__("Devices")}}
+                </a>
+            </li>
+            <li class="list-group-item {{ (request()->is('admin/locations')) ? 'active' : '' }}" role="presentation">
+                <a class="stretched-link" href="{{ url('/admin/locations') }}">
+                    {{__("Locations")}}
                 </a>
             </li>
         </ul>
     </div>
 </div>
+
+
 
 {{-- <li class="{{ (request()->is('admin/cities')) ? 'active' : '' }}">   --}}
 

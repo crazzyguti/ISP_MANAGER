@@ -1,0 +1,51 @@
+{
+    "mails": [{
+            "host": "mailtrap.io",
+            "email": "gultekin@gaberovo.bg ",
+            "username": "aa9b521193cfb8",
+            "password": "0ca81bb3238bcc",
+            "pop": {
+                "server": "pop3.mailtrap.io ",
+                "port": 995,
+                "SSL": true
+            },
+            "smtp": {
+                "server": "smtp.mailtrap.io ",
+                "port": 25,
+                "SSL": false,
+                "TLS": false
+            }
+        }, {
+            "host": "gmail.com",
+            "email": "manyaka0@gmail.com",
+            "username": "manyaka0",
+            "password": "Nokialumia",
+            "pop": {
+                "server": "pop.gmail.com",
+                "port": 995,
+                "SSL": true
+            },
+            "smtp": {
+                "server": "smtp.gmail.com",
+                "port": 587,
+                "SSL": true,
+                "TLS": true
+            }
+        }, {
+
+            "host": "abv.bg",
+            "email": "manyaka_88@abv.bg",
+            "username": "manyaka_88",
+            "password": "9hgC4x6@qw27Naz",
+            "pop": {
+                "server": "pop3.abv.bg",
+                "port": 995
+            },
+            "smtp": {
+                "server": "smtp.abv.bg",
+                "port": 465
+            }
+        }
+
+    ]
+}

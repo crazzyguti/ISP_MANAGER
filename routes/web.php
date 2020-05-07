@@ -1,7 +1,7 @@
 <?php
 
 use App\Location;
-use App\Http\Resources\UserCollection;
+use App\Http\Resources\UserCollection as UserCollection;
 use App\Http\Resources\Locates as localisCollation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -23,42 +23,26 @@ Route::get('/', function () {
 });
 
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 Route::group(['prefix' => 'admin', "middleware" => "role:super-admin"], function () {
     Route::resources([
         '/'                =>     "AdminController",
         '/category'        =>     'CategoryController',
         '/tags'            =>     'TagController',
         '/roles'           =>     'RoleController',
+        '/locations'       =>     'LocationController',
         '/users'           =>     'Admin\UsersController',
         '/posts'           =>     'Admin\PostController',
         "/device"          =>     "Admin\DeviceController"
     ]);
 });
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get("/maps", function () {
     $locales = Location::all();
-    return view("maps.index", ["locales" => $locales]);
+    return view("maps.leafter", ["locales" => $locales]);
 });
 
-
-Route::get('/json', function () {
-    $userCollation = new UserCollection(User::all());
-    return $userCollation;
-});
-
-Route::get('/locates', function () {
-    $location = Location::all();
-    $collection = new localisCollation($location);
-    return $collection;
-});
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get("/demo", "freeController@getServerData");

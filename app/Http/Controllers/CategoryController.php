@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+    protected $category;
 
     protected  $validColums = [
         "name" => 'required|string|max:100',
@@ -20,13 +21,22 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $renderList = [
-            "categories" => Category::all()
-        ];
 
-        return view("admin.category.index",$renderList);
+    public function index(Request $request)
+    {
+        $keyword = $request->get('search');
+        $perPage = 5;
+
+        if (!empty($keyword)) {
+            $this->category = $categories = Category::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('slug', 'LIKE', "%$keyword%")
+                ->orWhere('description', 'LIKE', "%$keyword%")
+                ->latest()->paginate($perPage);
+        } else {
+            $this->category = $categories = Category::latest()->paginate($perPage);
+        }
+
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -62,7 +72,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $params = ["category" => Category::find($category)];
+        return view("admin.category.show", $params);
     }
 
     /**
@@ -73,10 +84,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        $fields = [
-            "categories" => Category::find($category)
+        $params = [
+            "category" => Category::find($category)
         ];
-        return view("admin.category.edit",$fields);
+        //return view("admin.category.blog_categories", $params);
+         return view("admin.category.edit", $params);
     }
 
     /**

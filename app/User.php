@@ -44,7 +44,7 @@ class User extends Authenticatable
 
 
     protected $dates = [
-        'seen_at',
+        'created_at',
     ];
 
     public function getFirstNameAttribute($value)
@@ -60,14 +60,6 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return "{$this->firstName} {$this->lastName}";
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function location()
-    {
-        return $this->belongsTo('App\Location', "location_id", "id");
     }
 
     /**
@@ -87,18 +79,19 @@ class User extends Authenticatable
      */
     public function posts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post', "user_id", "id");
     }
 
-    public function device()
+    public function devices()
     {
-        return $this->hasMany('App\Device');
+        return $this->hasMany('App\Device', "user_id", "id");
     }
 
-    // public function roles()
-    // {
-    //     return $this->belongsToMany('App\Role')->withTimestamps();
-    // }
-
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
+    public function location()
+    {
+        return $this->hasOne('App\Location', "id", "id");
+    }
 }

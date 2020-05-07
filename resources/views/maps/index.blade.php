@@ -216,6 +216,7 @@
         }
 
         map = new google.maps.Map(m_app, mapOption);
+        let SearchPlace = document.querySelector("#SearchPlace");
 
         autocomplete = new google.maps.places.Autocomplete(SearchPlace);
         autocomplete.bindTo('bounds', map);

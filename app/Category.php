@@ -12,12 +12,12 @@ class Category extends Model
 
     public function post()
     {
-        return $this->morphMany('App\Post', 'category');
+        return $this->belongsTo('App\Post', 'category_id');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'id');
+        return $this->hasOne('App\User', 'id');
     }
 }
 

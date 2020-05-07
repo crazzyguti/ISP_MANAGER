@@ -6,6 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Blade;
+use App\View\Components\Modal;
+use App\View\Components\Alert;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,7 +31,8 @@ class AppServiceProvider extends ServiceProvider
         // ServerToolsProvider::class => ServerToolsProvider::class,
     ];
 
-    public function boot(){
+    public function boot()
+    {
 
 
         //$this->registerPolicies();
@@ -39,11 +43,9 @@ class AppServiceProvider extends ServiceProvider
         });
 
 
+        Blade::component(Modal::class, 'modal');
+        Blade::component(Alert::class, 'alert');
 
-         // Implicitly grant "Super Admin" role all permissions
-        // This works in the app by using gate-related functions like auth()->user->can() and @can()
-
-
+        //Blade::include('components.alert', 'alert');
     }
-
 }

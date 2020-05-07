@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\User;
+use App\Http\Resources\User as UserResource;
+use App\User;
+
 
 class freeController extends Controller
 {
@@ -14,7 +16,90 @@ class freeController extends Controller
      */
     public function index()
     {
-        //
+        $User = User::find(1);
+        $Resource = new UserResource($User);
+        return $Resource;
+    }
+
+    public function getServerData()
+    {
+
+        $curl = curl_init();
+
+        $curlOpt = [
+            CURLOPT_URL => "https://85.187.243.6:2224/cgi-bin/pppoe_server/search_user_pppoe_server.cgi",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => array('realm_id' => 'gaberovo'),
+        ];
+
+
+
+        curl_setopt_array($curl, $curlOpt);
+
+        $response = curl_exec($curl);
+
+        if (curl_exec($curl) === false) {
+            echo 'Curl error: ' . curl_error($curl);
+        } else {
+            //echo 'Operation completed without any errors';
+        }
+
+        $curl = curl_init();
+
+        $curlOpt = [
+            CURLOPT_URL => "https://85.187.243.6:2224/cgi-bin/pppoe_server/search_user_pppoe_server.cgi",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => array('realm_id' => 'gaberovo'),
+        ];
+
+
+
+        curl_setopt_array($curl, $curlOpt);
+
+        $response = curl_exec($curl);
+
+        if (curl_exec($curl) === false) {
+            echo 'Curl error: ' . curl_error($curl);
+        } else {
+            //echo 'Operation completed without any errors';
+        }
+
+        function callback($buffer)
+        {
+            // replace all the apples with oranges
+
+            $thbg = ["номер", "връзка", "потребител", "ай пи адрес", "на линия от", "влан", "локация", "<TABLE>"];
+            $th = ["ID", "CONECTION", "USERNAME", "IP", "OnlineTime", "Wlan", "Locale", "<table id='onlineTable' class='table table-striped table-dark'>"];
+
+            return (str_replace($thbg, $th, $buffer));
+        }
+
+        curl_close($curl);
+        ob_start("callback");
+        $html = <<<EOF
+ <div>
+    <?= $response; ?>
+</div>
+EOF;
+        ob_end_flush();
+
+        return $response;
     }
 
     /**
@@ -44,9 +129,9 @@ class freeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $Auser)
+    public function show(User $user)
     {
-        return new User($Auser);
+        // return new User($user);
     }
 
     /**

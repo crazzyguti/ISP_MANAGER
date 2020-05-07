@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "name": "PowerShell Launch Script",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/mail.ps1",
+            "cwd": "${workspaceFolder}"
+        },
+
+    ]
+
+}

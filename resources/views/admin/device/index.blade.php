@@ -14,11 +14,9 @@
                         <i class="fa fa-plus" aria-hidden="true"></i> Add New
                     </a>
 
-                    <form method="GET" action="{{ url('/admin/device') }}" accept-charset="UTF-8"
-                        class="form-inline my-2 my-lg-0 float-right" role="search">
+                    <form method="GET" action="{{ url('/admin/device') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="search" placeholder="Search..."
-                                value="{{ request('search') }}">
+                            <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
                             <span class="input-group-append">
                                 <button class="btn btn-secondary" type="submit">
                                     <i class="fa fa-search"></i>
@@ -27,8 +25,6 @@
                         </div>
                     </form>
 
-                    <br />
-                    <br />
                     <div class="table-responsive">
                         <table class="table" id="datatableD">
                             <thead>
@@ -69,7 +65,8 @@
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
-                                            data-target="#ModalSetting" data-whatever="@getbootstrap"> GetDataform </button>
+                                            data-target="#ModalSetting" data-whatever="@getbootstrap"> GetDataform
+                                        </button>
                                     </td>
                                     <td>{!! $item->Devicedata !!}</td>
                                 </tr>
@@ -86,26 +83,80 @@
 </div>
 
 
-
-<div class="modal fade" id="ModalSetting" tabindex="-1" role="dialog" aria-labelledby="ModalSettingLabel"
+<div class="modal fade bd-example-modal-lg" id="ModalSetting" tabindex="-1" role="dialog" aria-labelledby="ModalSettingLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="ModalSettingLabel">New message</h4>
+                <h4 class="modal-title" id="ModalSettingLabel">Device Information</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="md-form">
-                        <input type="text" class="form-control" id="recipient-name">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row py-2">
+                            <div class="col-md-4"><b>Information</b></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>System Time:</b></div>
+                            <div class="mr-auto px-3">2020-04-15 23:29:09</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Uptime:</b></div>
+                            <div class="mr-auto px-1">3 day(s) 23 hour(s) 56 min 59 s</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Firmware Version</b></div>
+                            <div class="mr-auto px-1">V15.03.06.48_multi</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Hardware Version:</b></div>
+                            <div class="mr-auto px-1">V1.0</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4"><b>WAN Status</b></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Connection Type:</b></div>
+                            <div class="mr-auto px-1">PPPoE</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Connection Status:</b></div>
+                            <div class="mr-auto px-1">Connected</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Connection Duration:</b></div>
+                            <div class="mr-auto px-1">3 day(s) 1 hour(s) 36 min 22 s</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>IP Address:</b></div>
+                            <div class="mr-auto px-1">46.254.132.244</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Subnet Mask:</b></div>
+                            <div class="mr-auto px-1">255.255.255.255</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Default Gateway:</b></div>
+                            <div class="mr-auto px-1">85.187.243.6</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Primary DNS:</b></div>
+                            <div class="mr-auto px-1">8.8.8.8</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Secondary DNS:</b></div>
+                            <div class="mr-auto px-1">1.1.1.1</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>MAC Address:</b></div>
+                            <div class="mr-auto px-1">D8:CB:8A:84:43:AE</div>
+                        </div>
                     </div>
-                    <div class="md-form">
-                        <textarea type="text" id="message-text" class="form-control md-textarea" rows="3"></textarea>
-                    </div>
-                </form>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -116,26 +167,59 @@
 </div>
 @endsection
 
+
+{{-- LAN Status
+IP Address:
+192.168.0.1
+Subnet Mask:
+255.255.255.0
+MAC Address:
+58:D9:D5:68:D9:A0
+
+WiFi Status
+2.4 GHz Network:
+Visible
+Hotspot Name:
+host_wifi
+Encryption Mode:
+WPA/WPA2-PSK
+WiFi Channel:
+10
+WiFi Bandwidth:
+40
+MAC Address:
+58:D9:D5:68:D9:A1
+5 GHz Network:
+Visible
+Hotspot Name:
+host_wifi_5G
+Encryption Mode:
+WPA/WPA2-PSK
+WiFi Channel:
+36
+WiFi Bandwidth:
+80
+MAC Address:
+58:D9:D5:68:D9:A5 --}}
+
 @section('script')
 <script>
+    $(document).ready(function () {
+        //$('#datatableD').DataTable();
 
-$(document).ready(function () {
-//$('#datatableD').DataTable();
 
-
-$('#ModalSetting').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other
-        //methods
-        //instead.
-        console.log(event);
-        var modal = $(this)
-        modal.find('.modal-title').text('New message to ' + recipient)
-        modal.find('.modal-body input').val(recipient)
-    })
-});
-
+        $('#ModalSetting').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other
+            //methods
+            //instead.
+            console.log(event);
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+    });
 </script>
 @endsection

@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     @auth
-
+                    <x-modal type="danger" message="Modal"/>
                     <p>
                         Welcome Again <b>{{Auth::user()->fullName}}</b>
                     </p>

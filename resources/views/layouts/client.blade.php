@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}  -  @yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <div id="app">
     <!--Main Navigation-->
     <header>
 
@@ -118,7 +119,7 @@
     </main>
     <!--Main layout-->
     <!--Footer-->
-    <footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
+    <footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn position-sticky d-none">
 
         <!--Call to action-->
         <div class="pt-4">
@@ -177,11 +178,9 @@
         <!--/.Copyright-->
 
     </footer>
-
+</div>
     @yield("script")
 
-    <!--/.Footer-->
-    <!-- Initializations -->
     <script type="text/javascript">
         // Animations initialization
         new WOW().init();

@@ -1,9 +1,9 @@
-@extends('layouts.client')
+@extends('layouts.admin2')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            @include('admin.sidebar')
+            <x-sidebar title="POWER"/>
 
             <div class="col">
                 <div class="card">

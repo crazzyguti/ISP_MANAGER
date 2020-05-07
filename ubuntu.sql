@@ -1,0 +1,2 @@
+use ispmanager;
+show tables;

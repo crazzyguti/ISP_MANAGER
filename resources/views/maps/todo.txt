@@ -1,0 +1,4 @@
+add marker
+update marker
+show marker
+delete marker

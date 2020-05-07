@@ -1,0 +1,18 @@
+{
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    // "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "emmet.triggerExpansionOnTab": true,
+    "php.suggest.basic": false,
+    "editor.autoIndent": "full",
+    "emmet.includeLanguages": {
+        "blade": "html"
+    },
+    "explorer.openEditors.visible": 0,
+    "editor.minimap.enabled": false,
+    "editor.tabCompletion": "on",
+
+
+}

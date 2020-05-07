@@ -38,10 +38,10 @@ class CreateView extends Command
      */
     public function handle()
     {
-        $headers = ['FirstName', 'LastName'];
+        $columns = ['FirstName', 'LastName'];
 
         $users = User::all(['firstName', 'lastName'])->toArray();
 
-        $this->table($headers, $users);
+        $this->table($columns, $users);
     }
 }

@@ -1,0 +1,33 @@
+{
+    "fields": [{
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "unit",
+            "type": "string"
+        },
+        {
+            "name": "expired",
+            "type": "dateTime"
+        },
+        {
+            "name": "price",
+            "type": "decimal"
+        }, {
+            "name": "user_id",
+            "type": "integer"
+        }
+    ],
+    "foreign_keys": [{
+        "column": "user_id",
+        "references": "id",
+        "on": "users",
+        "onDelete": "cascade"
+    }],
+    "relationships": [{
+        "name": "user",
+        "type": "belongsTo",
+        "class": "App\\User"
+    }]
+}
