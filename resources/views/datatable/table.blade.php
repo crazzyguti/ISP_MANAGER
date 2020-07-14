@@ -1,54 +1,43 @@
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+@extends('layouts.client')
 
-            <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-            <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more
-                information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
-                    DataTables documentation</a>.</p>
+@section('content')
 
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div id="server_detail">{!! $html !!}</div>
         </div>
-        <!-- /.container-fluid -->
+    </div>
+</div>
+
+
+@section('script')
+<script src="{{asset('vendor/tableToJson/lib/jquery.tabletojson.js')}}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        let  Users = [];
+        moment.locale("BG");
+        var table = $('table').tableToJSON();
+        table.forEach((item) => {
+            Users.push({
+                "username" :  item["потребител"],
+                "name" : item["имена"],
+                "address" : item["адрес"],
+                "comment" : item["коментар"],
+                "phone" : item["телефон"],
+                "password" : item["парола"],
+                "location" : item["местонахождение"],
+                "payment" : item["платено до"],
+            })
+        });
+
+
+
+        let styles = Array.from(document.querySelectorAll("body style"));
+        styles.map(item => item.remove());
+    });
+</script>
+@endsection
+@endsection

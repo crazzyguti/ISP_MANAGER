@@ -19,6 +19,7 @@ class Location extends Model
      */
     public function markers()
     {
-        return $this->morphMany('App\Marker', 'markerable');
+
+        return $this->hasMany('App\Marker',"id","id");
     }
 }

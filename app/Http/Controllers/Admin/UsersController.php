@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use App\Location;
+use App\Device;
 
 class UsersController extends Controller
 {
+
+    protected $users;
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +39,8 @@ class UsersController extends Controller
 
     public function GetUsers()
     {
-        return $this->user = User::all();
+       $this->user = User::all();
+        return $this->Users;
     }
 
     /**
@@ -73,12 +77,15 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $locations = Location::all();
-        $users = User::find($user)->first();
+        $user = User::find($user)->first();
         $params = [
-            "users" => $users,
+            "user" => $user,
             "locations" => $locations
         ];
-        return view("admin.user.show", $params);
+
+         return view('admin.user.show',  $params );
+
+
     }
 
     /**
@@ -89,9 +96,12 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        $user = User::findOrFail($user);
+        $user = User::find($user)->first();
+        $params = [
+            "user" => $user,
+        ];
 
-        return view('admin.users.edit', compact('user'));
+         return view('admin.user.edit',  $params );
     }
 
     /**

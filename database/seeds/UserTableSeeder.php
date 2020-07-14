@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
 
+
 class UserTableSeeder extends Seeder
 {
     /**
@@ -16,8 +17,6 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        //$admin = Role::where('name', 'admin')->first();
-        $today = Carbon::today()->addDay(rand(1,100));
         $user = [
             "firstName" => "Gultekin",
             "lastName" => "Ahmed",
@@ -30,6 +29,8 @@ class UserTableSeeder extends Seeder
             'remember_token' => Str::random(10),
         ];
         $user =  User::create($user);
-        $user->assignRole('super-admin');
+        $user->assignRole('owner');
+        factory(User::class, 10)->create();
+
     }
 }

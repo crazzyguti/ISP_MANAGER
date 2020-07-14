@@ -1615,14 +1615,13 @@
                             <div class="clearfix">
                                 <div class="grey-800 float-left py-10">
                                     <i class="icon md-account grey-600 font-size-24 vertical-align-bottom mr-5"></i>
-                                    User
+                                    {{(__("Users"))}}
                                 </div>
-                                <span class="float-right grey-700 font-size-30">1,253</span>
+                                {{-- {{$users->count()}} --}}
+                            <span class="float-right grey-700 font-size-30">9</span>
                             </div>
                             <div class="mb-20 grey-500">
-                                <i class="icon md-long-arrow-up green-500 font-size-16"></i> 15%
-                                From this yesterday
-                            </div>
+                                <i class="icon md-long-arrow-up green-500 font-size-16"></i> 15%  From this yesterday</div>
                             <div class="ct-chart h-50"></div>
                         </div>
                     </div>
@@ -1737,9 +1736,10 @@
                                     <div class="float-left">
                                         <div class="font-size-20">Габерово</div>
                                         <p class="mb-20 text-nowrap">
-                                            <span class="text-break"><a href="../../../cdn-cgi/l/email-protection.htm"
+                                            {{-- <span class="text-break"><a href="../../../cdn-cgi/l/email-protection.htm"
                                                     class="__cf_email__"
-                                                    data-cfemail="f79a96949f9e9392849e9099b7909a969e9b">[email&#160;protected]</a></span>
+                                                    data-cfemail="f79a96949f9e9392849e9099b7909a969e9b">[email&#160;protected]</a></span> --}}
+
                                         </p>
                                         <div class="text-nowrap font-size-18">
                                             <a href="index.html" class="white mr-10">

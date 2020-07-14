@@ -16,6 +16,16 @@
                     {{__("Categories")}}
                 </a>
             </li>
+            <li class="list-group-item {{ (request()->is('admin/users')) ? 'active' : '' }}" role="presentation">
+                <a class="stretched-link" href="{{ url('/admin/users') }}">
+                    {{__("Users")}}
+                </a>
+            </li>
+            <li class="list-group-item {{ (request()->is('admin/roles')) ? 'active' : '' }}" role="presentation">
+                <a class="stretched-link" href="{{ url('/admin/roles') }}">
+                    {{__("Roles")}}
+                </a>
+            </li>
             <li class="list-group-item {{ (request()->is('admin/device')) ? 'active' : '' }}" role="presentation">
                 <a class="stretched-link" href="{{ url('/admin/device') }}">
                     {{__("Devices")}}

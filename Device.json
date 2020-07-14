@@ -1,0 +1,13 @@
+{
+    "WirelessName":"Wia",
+    "WirelessKey": "1418",
+    "DefaultMacAddress": "AC:2B:6E:B1:58:5A",
+    "DefaultGateway": "192.168.0.1",
+    "RemoteManagament": "true",
+    "RemoteIP" : "85.187.243.9",
+    "RemotePort": 8080,
+    "login": {
+        "username": "admin",
+        "password": "admin"
+    }
+}

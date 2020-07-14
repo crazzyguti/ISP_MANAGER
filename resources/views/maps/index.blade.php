@@ -125,8 +125,7 @@
                                 </div>
 
                                 <!-- E-mail -->
-                                <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4"
-                                    placeholder="E-mail" autocomplete="username">
+                                <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" autocomplete="username">
 
                                 <!-- Password -->
                                 <input type="password" id="RegisterFormPassword" class="form-control"
@@ -167,6 +166,7 @@
 
                                 <hr>
                                 <p id="position"></p>
+                                <x-alert type="error" :message="$message"/>
                                 <hr>
 
                                 <!-- Terms of service -->

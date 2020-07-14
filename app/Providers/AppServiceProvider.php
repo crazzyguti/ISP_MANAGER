@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Blade;
 use App\View\Components\Modal;
 use App\View\Components\Alert;
+use App\User;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,13 +35,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-
-        //$this->registerPolicies();
-
-        View::composer('*', function ($view) {
-            // $user = Auth::user();
-            // $view->with("user",$user);
-        });
+        View::share('_TOKEN', csrf_token());
 
 
         Blade::component(Modal::class, 'modal');

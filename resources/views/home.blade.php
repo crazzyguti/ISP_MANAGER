@@ -6,12 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
-
                 <div class="card-body">
                     @auth
-                    <x-modal type="danger" message="Modal"/>
+
+                    <x-alert type="danger" message="Hello Info"/>
                     <p>
-                        Welcome Again <b>{{Auth::user()->fullName}}</b>
+                        {{__("Welcome Again")}} <b>{{Auth::user()->fullName}}</b>
                     </p>
                     @endauth
 

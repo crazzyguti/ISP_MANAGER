@@ -21,7 +21,7 @@
 
                             <div class="col-md-6">
                                 <input id="email_phone" type="text"
-                                    class="form-control{{ $errors->has('email_phone') ? ' is-invalid' : '' }}"
+                                    class="form-control  class="form-control {{ $errors->has('email_phone') ? ' is-invalid' : '' }}
                                     pattern="^\+?[0-9]{3}[0-9]{3}[0-9]{4,15}|[0-9a-zA-Z.!#$%&amp;’*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+"
                                     name="email_phone" value="{{ old('email_phone') }}" required>
 
@@ -123,8 +123,6 @@
         e.preventDefault();
         email_phone.value = demoUser.email;
         password.value = demoUser.password;
-        $('.toast').toast('show');
-        console.log("clicked")
     });
 
     $('.card').addClass('animated tada bounceInDown');

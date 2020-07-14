@@ -32,6 +32,17 @@ class User extends Authenticatable
     ];
 
     /**
+     * Set the user's first name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setFirstNameAttribute($value)
+    {
+        $this->attributes['firstName'] = strtolower($value);
+    }
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array
@@ -61,6 +72,13 @@ class User extends Authenticatable
     {
         return "{$this->firstName} {$this->lastName}";
     }
+
+    /**
+     * The storage format of the model's date columns.
+     *
+     * @var string
+     */
+    // protected $dateFormat = 'U';
 
     /**
      * @return int

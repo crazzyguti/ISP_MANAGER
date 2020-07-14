@@ -6,6 +6,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use App\Post;
 use App\Policies\PostPolicy;
+use Illuminate\Support\Facades\Blade;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -30,5 +31,8 @@ class AuthServiceProvider extends ServiceProvider
         Gate::before(function ($user, $ability) {
             return $user->hasRole('super-admin') ? true : null;
         });
+        Blade::component('package-alert', AlertComponent::class);
+        Blade::component('package-cards', ModalComponent::class);
+        Blade::component('package-modal', CardsComponent::class);
     }
 }

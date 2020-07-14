@@ -3,6 +3,8 @@
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 use App\User;
+use App\Location;
+use App\Role;
 use Illuminate\Support\Facades\Hash;
 
 use Carbon\Carbon;
@@ -20,19 +22,38 @@ use Carbon\Carbon;
  */
 
 $factory->define(User::class, function (Faker $faker) {
-    $gender = $faker->randomElement(['male','female']);
-    $email_phone = $faker->randomElement([$faker->unique()->safeEmail,$faker->unique()->e164PhoneNumber]);
-    $today = Carbon::today()->addDay(rand(1,100));
-    return [
+
+
+
+    $gender = $faker->randomElement(['male', 'female']);
+    $email_phone = $faker->unique()->safeEmail;
+
+    $today = Carbon::today()->format('Y-m-d H:i:s');
+    $locales =  Location::all();
+    $rndLocale = $locales->random()->id;
+
+
+
+    $users =  [
         'firstName' => $faker->firstName($gender),
         'lastName' => $faker->lastName($gender),
         'email_phone' => $email_phone,
         "birthday" => $faker->date(),
         "gender" => $gender,
-        'email_verified_at' => now(),
+        'email_verified_at' => $today,
         'password' => Hash::make("secret"), // secret
         'remember_token' => Str::random(10),
-        'locate' => "",
+        'locate' => $rndLocale,
     ];
-});
 
+
+    //$userData =  User::create($users);
+
+
+    // dd($userData);
+    // $Roles = Role::all();
+
+    // $userData->assignRole($Roles->random()->name);
+
+     return $users;
+});

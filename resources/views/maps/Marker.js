@@ -3,6 +3,7 @@ class Marker{
         this.id = "";
         this.icon = "";
         this.label = "";
+        this.type = "";
 
     }
 

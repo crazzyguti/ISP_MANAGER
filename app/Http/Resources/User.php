@@ -23,7 +23,7 @@ class User extends JsonResource
             'gender' => $this->gender,
             'roles' => $this->getRoleNames(),
             'created_at' => $this->created_at,
-            // 'updated_at' => $this->updated_at,
+            'updated_at' => $this->updated_at,
             'devices' => $this->devices,
             "locate" => $this->location
         ];

@@ -35,6 +35,9 @@
         {
             "name": "routes",
             "path": "../routes"
+        },
+        {
+            "path": "D:/public_html/AdminPanel"
         }
     ],
     "settings": {
@@ -43,6 +46,7 @@
         "terminal.integrated.env.windows": {
              "PATH": "${env:PATH};L:/ISP_MANAGER/bin"
         },
+        "liveServer.settings.multiRootWorkspaceName": "ROOT",
     },
     "launch": {
         "configurations": [

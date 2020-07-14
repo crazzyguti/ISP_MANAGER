@@ -46,6 +46,7 @@
 @section('content')
 <div id="map" style="width: 600px; height: 400px;"></div>
 <pre id="coordinates" class="coordinates"></pre>
+
 <div class="form-group">
     <label for="mapStyles">Map Styles</label>
     <select class="custom-select" name="mapStyles" id="mapStyles">
@@ -60,6 +61,7 @@
         <option value="navigation-guidance-day-v4">navigation-guidance-day-v4</option>
         <option value="navigation-guidance-day-v4">navigation-preview-night-v4</option>
     </select>
+
 </div>
 
 
@@ -78,7 +80,7 @@
         zoom: 15
     });
 
-    var size = 100;
+    var size = 200;
 
     // implementation of CustomLayerInterface to draw a pulsing dot icon on the map
     // see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
@@ -107,21 +109,38 @@
             // draw outer circle
             context.clearRect(0, 0, this.width, this.height);
             context.beginPath();
-            context.arc(this.width / 2, this.height / 2, outerRadius, 0, Math.PI * 2);
-            context.fillStyle = 'rgba(10, 200, 0,' + (1 - t) + ')';
+            context.arc(
+                this.width / 2,
+                this.height / 2,
+                outerRadius,
+                0,
+                Math.PI * 2
+            );
+            context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
             context.fill();
 
             // draw inner circle
             context.beginPath();
-            context.arc(this.width / 2, this.height / 2, radius, 0, Math.PI * 2);
-            context.fillStyle = 'rgba(10, 255, 0, 1)';
+            context.arc(
+                this.width / 2,
+                this.height / 2,
+                radius,
+                0,
+                Math.PI * 2
+            );
+            context.fillStyle = 'rgba(255, 100, 100, 1)';
             context.strokeStyle = 'white';
             context.lineWidth = 2 + 4 * (1 - t);
             context.fill();
             context.stroke();
 
             // update this image's data with data from the canvas
-            this.data = context.getImageData(0, 0, this.width, this.height).data;
+            this.data = context.getImageData(
+                0,
+                0,
+                this.width,
+                this.height
+            ).data;
 
             // continuously repaint the map, resulting in the smooth animation of the dot
             map.triggerRepaint();
@@ -132,31 +151,36 @@
     };
 
     map.on('load', function () {
-        // map.addImage('pulsing-dot', pulsingDot, {
-        //     pixelRatio: 2
-        // });
 
-        // map.addSource('points', {
-        //     'type': 'geojson',
-        //     'data': {
-        //         'type': 'FeatureCollection',
-        //         'features': [{
-        //             'type': 'Feature',
-        //             'geometry': {
-        //                 'type': 'Point',
-        //                 'coordinates': center
-        //             }
-        //         }]
-        //     }
-        // });
-        // map.addLayer({
-        //     'id': 'points',
-        //     'type': 'symbol',
-        //     'source': 'points',
-        //     'layout': {
-        //         'icon-image': 'pulsing-dot'
-        //     }
-        // });
+
+        map.addImage('pulsing-dot', pulsingDot, {
+            pixelRatio: 2
+        });
+
+
+
+        map.addSource('signal', {
+            'type': 'geojson',
+            'data': {
+                'type': 'FeatureCollection',
+                'features': [{
+                    'type': 'Feature',
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': center
+                    }
+                }]
+            }
+        });
+        map.addLayer({
+            'id': 'signal',
+            'type': 'symbol',
+            'source': 'signal',
+            'layout': {
+                'icon-image': 'pulsing-dot'
+            }
+        });
+
         map.loadImage(
             `{{asset('images/user_online.png')}}`,
             function (error, image) {
@@ -192,39 +216,18 @@
         var geojson = {
             'type': 'FeatureCollection',
             'features': [{
-                    'type': 'Feature',
-                    'properties': {
-                        'message': 'Foo',
-                        'iconSize': [60, 60]
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [27.53095196628101, 42.697456216702506]
-                    }
+
+                'type': 'Feature',
+                'properties': {
+                    'message': 'Foo',
+                    'iconSize': [60, 60]
                 },
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'message': 'Bar',
-                        'iconSize': [50, 50]
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [27.529673049942545, 42.69689748412884]
-                    }
-                },
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'message': 'Baz',
-                        'iconSize': [40, 40]
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [27.529989210337163, 42.69670116331335]
-                    }
+                'description': '',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [27.53095196628101, 42.697456216702506]
                 }
-            ]
+            }]
         };
 
         let bgImage = `{{asset('images/user_online.png')}}`;
@@ -234,8 +237,6 @@
             // create a DOM element for the marker
             var el = document.createElement('div');
             el.className = 'marker';
-            // el.style.backgroundImage = `url({{asset("images/user_online.png")}})`;
-
             el.style.backgroundImage = `url('${bgImage}')`;
 
 
@@ -243,13 +244,27 @@
             el.style.height = marker.properties.iconSize[1] + 'px';
 
             el.addEventListener('click', function () {
-                window.alert(marker.properties.message);
+                // window.alert(marker.properties.message);
             });
 
-            // // add marker to map
-            // new mapboxgl.Marker(el)
-            //     .setLngLat(marker.geometry.coordinates)
-            //     .addTo(map);
+            // create the popup
+            var popup = new mapboxgl.Popup({
+                offset: 25
+            }).setHTML(
+                ` <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <b class="card-title">Username</b>
+                    <p class="card-text">${marker.description}</p>
+                </div>
+            </div>
+        </div>`
+            );
+            // add marker to map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(popup)
+                .addTo(map);
         });
 
     });
@@ -261,8 +276,16 @@
     // create the popup
     var popup = new mapboxgl.Popup({
         offset: 25
-    }).setText(
-        'Construction on the Washington Monument began in 1848.'
+    }).setHTML(
+        ` <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="holder.js/100x180/" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Username</h4>
+                    <p class="card-text">Text</p>
+                </div>
+            </div>
+        </div>`
     );
 
 
@@ -281,9 +304,6 @@
     mapStyles.addEventListener("input", (e) => {
         map.setStyle('mapbox://styles/mapbox/' + e.target.value);
     });
-
-
-
 
 
 

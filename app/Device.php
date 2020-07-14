@@ -33,5 +33,4 @@ class Device extends Model
     }
 
 
-
 }

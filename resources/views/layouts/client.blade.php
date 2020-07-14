@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ config('app.name', 'Laravel') }}  -  @yield('title')</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+    <link rel="manifest" href="{{asset("manifest.webmanifest")}}">
 
 
     @include('headers.style')
@@ -41,12 +42,12 @@
                     <!-- Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link waves-effect" href="#">Home
-                                <span class="sr-only">(current)</span>
+                            <a href="{{ route('home') }}" class="nav-link waves-effect {{ is_active('home') }}">
+                                {{__("Home")}} <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect" href="{{url('maps')}}">{{__("Maps_API")}}</a>
+                            <a href="{{ route('maps') }}" class="nav-link waves-effect {{ is_active('maps') }}">{{ __("Maps_API") }}</a>
                         </li>
                     </ul>
 
@@ -181,10 +182,6 @@
 </div>
     @yield("script")
 
-    <script type="text/javascript">
-        // Animations initialization
-        new WOW().init();
-    </script>
 
     @auth
     <script>
@@ -194,6 +191,11 @@
         logoutBtn.addEventListener("click", (e) => {
             e.preventDefault();
             logoutForm.submit();
+        });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
     </script>
     @endauth

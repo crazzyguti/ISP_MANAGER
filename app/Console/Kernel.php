@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-use App\User;
+// use App\User;
 
 use App\Console\Commands\PublicFiles;
 use App\Console\Commands\CreateView;
@@ -21,7 +21,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         PublicFiles::class,
         CreateView::class,
-        SendEmails::class
+        SendEmails::class,
+        // User::class
     ];
 
     /**

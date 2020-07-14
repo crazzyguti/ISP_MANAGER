@@ -12,8 +12,9 @@
         "vendor/datatable/datatables.js",
         "vendor/jquery.steps/build/jquery.steps.min.js",
         "vendor/holderjs/holder.min.js",
-        "vendor/push.js/bin/push.js"
-        // "js/crypto.js"
+        "vendor/push.js/bin/push.js",
+        // "js/crypto.js",
+        "vendor/moment/min/moment-with-locales.min.js",
 ],
 
         "defer" => [

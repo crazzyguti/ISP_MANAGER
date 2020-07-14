@@ -9,9 +9,12 @@ class Marker extends Model
     protected $table = "markers";
     protected $guarded = [];
 
-    public function markerable()
+    /**
+     * Get the post that owns the comment.
+     */
+    public function locates()
     {
-        return $this->morphTo();
+        return $this->belongsTo('App\Location');
     }
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 use App\Location;
-use App\Http\Resources\UserCollection as UserCollection;
+use App\Http\Resources\User as UserResource;
 use App\Http\Resources\Locates as localisCollation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -22,8 +22,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
 
-Route::group(['prefix' => 'admin', "middleware" => "role:super-admin"], function () {
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['prefix' => 'admin', "middleware" => "role:owner"], function () {
     Route::resources([
         '/'                =>     "AdminController",
         '/category'        =>     'CategoryController',
@@ -32,17 +36,26 @@ Route::group(['prefix' => 'admin', "middleware" => "role:super-admin"], function
         '/locations'       =>     'LocationController',
         '/users'           =>     'Admin\UsersController',
         '/posts'           =>     'Admin\PostController',
-        "/device"          =>     "Admin\DeviceController"
+        "/device"          =>     "Admin\DeviceController",
+        "/customers"       =>     "CustomerController"
     ]);
 });
-
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 Route::get("/maps", function () {
     $locales = Location::all();
     return view("maps.leafter", ["locales" => $locales]);
+})->name("maps");
+
+Route::get("/demo", "freeController@index");
+Route::get("/free", "freeController@getServerData");
+Route::get("/jsonEditor", "freeController@jsonEditor");
+Route::get("/jsonEditor", "freeController@jsonEditor");
+// Route::get("/free2", "freeController@getServerData");
+
+route::get("/freeUser/{id}", function ($id) {
+    $user = User::find($id);
+    return new UserResource($user);
 });
 
-Route::get("/demo", "freeController@getServerData");
+
+Route::get('user/{id}', 'ShowProfile');

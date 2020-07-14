@@ -39,7 +39,7 @@ class DeviceController extends Controller
 
     public function GetDevices()
     {
-        $this->devices = Device::all();
+       $this->devices = Device::all();
        return $this->devices;
     }
 

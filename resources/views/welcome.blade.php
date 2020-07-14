@@ -1,16 +1,6 @@
 @extends('layouts.client')
 @section('css')
 <style>
-    html,
-    body {
-        background-color: #fff;
-        color: #636b6f;
-        font-family: 'Nunito', sans-serif;
-        font-weight: 200;
-        height: 100vh;
-        margin: 0;
-    }
-
     .full-height {
         height: 100vh;
     }
@@ -95,26 +85,25 @@
         <div class="col-lg-4 col-md-12 mb-4">
 
           <!--Card-->
-          <div class="card">
+          <div class="card text-white bg-dark mb-3">
 
             <!--Card image-->
             <div class="view overlay">
               <div class="embed-responsive embed-responsive-16by9 rounded-top">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cXTThxoywNQ"
-                  allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/mr_xfcOe7Lo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
 
             <!--Card content-->
             <div class="card-body">
               <!--Title-->
-              <h4 class="card-title">MDB Quick Start</h4>
+              <h4 class="card-title bg-dark text-white">как работи Оптичен интернет и какво представлява</h4>
               <!--Text-->
-              <p class="card-text">Get started with MDBootstrap, the world's most popular Material Design framework
-                for building
-                responsive, mobile-first sites.</p>
-              <p class="card-text">
-                <strong>5 minutes, a few clicks and... done. You will be surprised at how easy it is.</strong>
+              <p class="card-text bg-dark text-white">
+                <strong>
+                 Определно бъдещето принадлежи на оптичната интернет връзка.
+                 Голяма част от хората обаче все още не знаят какво представлява тя и не осъзнават каква полза може да им донесе тази нова технология.
+                </strong>
               </p>
             </div>
 

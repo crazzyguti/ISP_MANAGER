@@ -65,10 +65,10 @@
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
-                                            data-target="#ModalSetting" data-whatever="@getbootstrap"> GetDataform
+                                        data-target="#ModalSetting" data-whatever="{{$item->brand}}"> GetDataform
                                         </button>
                                     </td>
-                                    <td>{!! $item->Devicedata !!}</td>
+                                    <td class="d-none device_default_config">{{ $item->deviceData }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -95,68 +95,46 @@
             </div>
             <div class="modal-body">
                 <div class="modal-body">
-                    <div class="container-fluid">
                         <div class="row py-2">
                             <div class="col-md-4"><b>Information</b></div>
                         </div>
                         <div class="row py-2">
-                            <div class="ml-auto"><b>System Time:</b></div>
-                            <div class="mr-auto px-3">2020-04-15 23:29:09</div>
+                            <div class="ml-auto"><b>Wireless Name:</b></div>
+                            <div class="mr-auto px-1" id="WirelessName">Wia</div>
                         </div>
                         <div class="row py-2">
-                            <div class="ml-auto"><b>Uptime:</b></div>
-                            <div class="mr-auto px-1">3 day(s) 23 hour(s) 56 min 59 s</div>
+                            <div class="ml-auto"><b>Wireless Key:</b></div>
+                            <div class="mr-auto px-1" id="WirelessKey">12345678</div>
                         </div>
                         <div class="row py-2">
-                            <div class="ml-auto"><b>Firmware Version</b></div>
-                            <div class="mr-auto px-1">V15.03.06.48_multi</div>
+                            <div class="ml-auto"><b>DefaultMacAddress:</b></div>
+                            <div class="mr-auto px-1" id="DefaultMacAddress">AC:2B:6E:B1:58:5A</div>
                         </div>
                         <div class="row py-2">
-                            <div class="ml-auto"><b>Hardware Version:</b></div>
-                            <div class="mr-auto px-1">V1.0</div>
+                            <div class="ml-auto"><b>DefaultGateway: </b></div>
+                            <div class="mr-auto px-1" id="DefaultGateway">192.168.0.1</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>Remote IP:</b></div>
+                            <div class="mr-auto px-1" id="RemoteIP">85.187.243.x</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto"><b>RemotePort:</b></div>
+                            <div class="mr-auto px-1" id="RemotePort">8000</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-4"><b>Login Info</b></div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto">Username :</div>
+                            <div class="mr-auto px-1" id="username">admin</div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="ml-auto">Password :</div>
+                            <div class="mr-auto px-1" id="password">admin</div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-4"><b>WAN Status</b></div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="ml-auto"><b>Connection Type:</b></div>
-                            <div class="mr-auto px-1">PPPoE</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="ml-auto"><b>Connection Status:</b></div>
-                            <div class="mr-auto px-1">Connected</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="ml-auto"><b>Connection Duration:</b></div>
-                            <div class="mr-auto px-1">3 day(s) 1 hour(s) 36 min 22 s</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="ml-auto"><b>IP Address:</b></div>
-                            <div class="mr-auto px-1">46.254.132.244</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="ml-auto"><b>Subnet Mask:</b></div>
-                            <div class="mr-auto px-1">255.255.255.255</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="ml-auto"><b>Default Gateway:</b></div>
-                            <div class="mr-auto px-1">85.187.243.6</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="ml-auto"><b>Primary DNS:</b></div>
-                            <div class="mr-auto px-1">8.8.8.8</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="ml-auto"><b>Secondary DNS:</b></div>
-                            <div class="mr-auto px-1">1.1.1.1</div>
-                        </div>
-                        <div class="row py-2">
-                            <div class="ml-auto"><b>MAC Address:</b></div>
-                            <div class="mr-auto px-1">D8:CB:8A:84:43:AE</div>
-                        </div>
                     </div>
-                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -168,45 +146,16 @@
 @endsection
 
 
-{{-- LAN Status
-IP Address:
-192.168.0.1
-Subnet Mask:
-255.255.255.0
-MAC Address:
-58:D9:D5:68:D9:A0
-
-WiFi Status
-2.4 GHz Network:
-Visible
-Hotspot Name:
-host_wifi
-Encryption Mode:
-WPA/WPA2-PSK
-WiFi Channel:
-10
-WiFi Bandwidth:
-40
-MAC Address:
-58:D9:D5:68:D9:A1
-5 GHz Network:
-Visible
-Hotspot Name:
-host_wifi_5G
-Encryption Mode:
-WPA/WPA2-PSK
-WiFi Channel:
-36
-WiFi Bandwidth:
-80
-MAC Address:
-58:D9:D5:68:D9:A5 --}}
-
 @section('script')
 <script>
     $(document).ready(function () {
         //$('#datatableD').DataTable();
 
+        let devicesData = $(".device_default_config");
+
+        let JsonData = [];
+        JsonData.push(JSON.parse(devicesData.text()));
+        console.log(JsonData);
 
         $('#ModalSetting').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
@@ -215,10 +164,12 @@ MAC Address:
             // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other
             //methods
             //instead.
-            console.log(event);
+            // console.log(event);
             var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
-            modal.find('.modal-body input').val(recipient)
+            modal.find('.modal-title').text('Device Data for ' + recipient)
+            modal.find('.modal-body input').val(recipient);
+            // console.log(modal.find(".device_default_config").text())
+
         })
     });
 </script>
