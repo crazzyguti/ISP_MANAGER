@@ -1,21 +1,37 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Category;
-use Faker\Generator as Faker;
+use App\Models\Category;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 
-$factory->define(Category::class, function (Faker $faker) {
-    $slug = $faker->unique()->word;
-    static $parent = 1;
-    //$parent  = App\Category::all()->last()->id ?? 1;
-    //$parent  = Category::inRandomOrder()->first()->id;
-    return [
-        'name' => $slug,
-        'slug' => Str::slug($slug),
-        'parent' => $parent++,
-        "description" => $faker->text(),
-    ];
-});
+class CategoryFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Category::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+
+        $slug = $this->faker->unique()->word;
+        static $parent = 1;
+        return [
+            'name' => $slug,
+            'slug' => Str::slug($slug),
+            'parent' => $parent++,
+            "description" => $this->faker->text(),
+        ];
+    }
+}
+

@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Device extends Model
+class Order extends Model
 {
-    /**
+     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'devices';
+    protected $table = 'orders';
 
     /**
     * The database primary key value.
@@ -25,12 +25,8 @@ class Device extends Model
      *
      * @var array
      */
-    protected $fillable = ['brand', 'model', 'type', 'deviceData', 'user_id'];
+    protected $fillable = [];
 
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
 
 
 }

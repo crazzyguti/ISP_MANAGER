@@ -69,3 +69,6 @@ base/assets/examples/js/dashboard/v1.min.js
 let jsonScripts = JSON.stringify(styles);
 
 console.log(jsonScripts);
+
+
+[...document.forms].map((item) => { item.onsubmit = (e) => { return false }});

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Device;
-use App\User;
+use App\Models\Device;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DeviceController extends Controller

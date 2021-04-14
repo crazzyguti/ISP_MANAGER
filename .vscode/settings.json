@@ -13,6 +13,9 @@
     "explorer.openEditors.visible": 0,
     "editor.minimap.enabled": false,
     "editor.tabCompletion": "on",
-
-
+    "phpcs.standard": "Laravel",
+    "phpcs.executablePath": "C:/Users/Gultekin/AppData/Roaming/Composer/vendor/bin",
+    "phpcs.ignorePatterns": [
+        "App/Http/Controllers/*"
+    ]
 }

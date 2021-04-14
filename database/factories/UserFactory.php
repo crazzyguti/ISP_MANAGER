@@ -2,9 +2,9 @@
 
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
-use App\User;
-use App\Location;
-use App\Role;
+use App\Models\User;
+use App\Models\Location;
+use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 
 use Carbon\Carbon;
@@ -26,7 +26,7 @@ $factory->define(User::class, function (Faker $faker) {
 
 
     $gender = $faker->randomElement(['male', 'female']);
-    $email_phone = $faker->unique()->safeEmail;
+    $email_phone = $this->faker->unique()->safeEmail;
 
     $today = Carbon::today()->format('Y-m-d H:i:s');
     $locales =  Location::all();

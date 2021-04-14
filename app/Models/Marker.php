@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +14,7 @@ class Marker extends Model
      */
     public function locates()
     {
-        return $this->belongsTo('App\Location');
+        return $this->belongsTo('App\Models\Location');
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use DateTime;
 use Illuminate\Notifications\Notifiable;
@@ -97,12 +97,12 @@ class User extends Authenticatable
      */
     public function posts()
     {
-        return $this->hasMany('App\Post', "user_id", "id");
+        return $this->hasMany('App\Models\Post', "user_id", "id");
     }
 
     public function devices()
     {
-        return $this->hasMany('App\Device', "user_id", "id");
+        return $this->hasMany('App\Models\Device', "user_id", "id");
     }
 
     /**
@@ -110,6 +110,6 @@ class User extends Authenticatable
      */
     public function location()
     {
-        return $this->hasOne('App\Location', "id", "id");
+        return $this->hasOne('App\Models\Location', "id", "id");
     }
 }

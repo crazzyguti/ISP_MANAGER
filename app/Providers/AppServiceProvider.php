@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Blade;
 use App\View\Components\Modal;
 use App\View\Components\Alert;
-use App\User;
+use App\Models\User;
 
 class AppServiceProvider extends ServiceProvider
 {

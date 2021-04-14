@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Location;
-use App\Device;
+use App\Models\Location;
+
 
 class UsersController extends Controller
 {

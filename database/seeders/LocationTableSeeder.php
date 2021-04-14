@@ -1,7 +1,9 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
-use App\Location;
+use App\Models\Location;
 use Illuminate\Support\Str;
 
 class LocationTableSeeder extends Seeder
@@ -19,7 +21,7 @@ class LocationTableSeeder extends Seeder
         $villages = ["Габерово", "Бата", "Гълъбец", "Белодол", "Разбойна", "Рожден", "Руен", "Рудина", "Ръжица", "Косовец", "Преображенци", "Припек", "Просеник", "Мрежичко", "Подгорец", "Медово", "Средна_махала", "Сини рид", "Страцин", "Топчийско", "Дъбник", "Черна могила"];
         foreach ($villages as $village) {
 
-            $faker = Faker\Factory::create();
+            $faker = \Faker\Factory::create();
 
             $location = new Location();
             $location->name = $village;

@@ -3,7 +3,7 @@
 setlocal DISABLEDELAYEDEXPANSION
 ::php "%~dp0artisan" %*
 
-set IP=www.gaberovo.bg
+set IP=Localhost
 set PORT=8000
 
 set URL=http://%IP%:%PORT%

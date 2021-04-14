@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,12 +15,12 @@ class Post extends Model
      */
     protected function category()
     {
-        return $this->belongsTo('App\Category', 'posts');
+        return $this->belongsTo('App\Models\Category', 'posts');
     }
 
     public function user()
     {
-        return $this->belongsTo("App\User","id","user");
+        return $this->belongsTo("App\Models\User","id","user");
     }
 
      /**
@@ -28,6 +28,6 @@ class Post extends Model
      */
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'commentable');
+        return $this->morphMany('App\Models\Comment', 'commentable');
     }
 }

@@ -1,11 +1,12 @@
 <?php
 
-use App\Location;
+use App\Models\Location;
 use App\Http\Resources\User as UserResource;
 use App\Http\Resources\Locates as localisCollation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +60,11 @@ route::get("/freeUser/{id}", function ($id) {
 
 
 Route::get('user/{id}', 'ShowProfile');
+
+Route::get('/token', function (Request $request) {
+    $token = $request->session()->token();
+
+    $token = csrf_token();
+    echo $token;
+
+});
