@@ -3,7 +3,7 @@
 <p align="center"><img src="https://laravel.com/img/logomark.min.svg" width="100">
 </p>
 
-<p>
+<p align="center"
     <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg"
             alt="Build Status"></a>
     <a href="https://packagist.org/packages/laravel/framework"><img
