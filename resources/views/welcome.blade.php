@@ -1,4 +1,3 @@
-@extends('layouts.client')
 @section('css')
 <style>
     .full-height {
@@ -44,6 +43,7 @@
     }
 </style>
 @endsection
+@extends('layouts.client')
 @section('content')
 <div class="container">
 
@@ -90,7 +90,7 @@
             <!--Card image-->
             <div class="view overlay">
               <div class="embed-responsive embed-responsive-16by9 rounded-top">
-                <iframe src="https://www.youtube.com/embed/mr_xfcOe7Lo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {{-- <iframe src="https://www.youtube.com/embed/mr_xfcOe7Lo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
               </div>
             </div>
 
@@ -330,4 +330,5 @@
     <!--Section: Cards-->
 
   </div>
+  
 @endsection

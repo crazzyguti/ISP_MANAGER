@@ -1608,7 +1608,9 @@
     <div class="page">
         <div class="page-content container-fluid">
             <div class="row" data-plugin="matchHeight" data-by-row="true">
+               
                 <div class="col-xl-3 col-md-6">
+                
                     <!-- Widget Linearea One-->
                     <div class="card card-shadow" id="widgetLineareaOne">
                         <div class="card-block p-20 pt-10">
@@ -1688,14 +1690,9 @@
                     <!-- End Widget Linearea Four -->
                 </div>
 
-                <div class="col-xxl-7 col-lg-7 d-none">
-                    <!-- Widget Jvmap -->
-                    <div class="card card-shadow">
-                        <div class="card-block p-0">
-                            <div id="widgetJvmap" class="h-450"></div>
-                        </div>
-                    </div>
-                    <!-- End Widget Jvmap -->
+                
+                <div class="col-xxl-5 col-lg-5">
+                    @yield("content")                    
                 </div>
 
                 <div class="col-xxl-5 col-lg-5 d-none">
@@ -1736,10 +1733,7 @@
                                     <div class="float-left">
                                         <div class="font-size-20">Габерово</div>
                                         <p class="mb-20 text-nowrap">
-                                            {{-- <span class="text-break"><a href="../../../cdn-cgi/l/email-protection.htm"
-                                                    class="__cf_email__"
-                                                    data-cfemail="f79a96949f9e9392849e9099b7909a969e9b">[email&#160;protected]</a></span> --}}
-
+                                           
                                         </p>
                                         <div class="text-nowrap font-size-18">
                                             <a href="index.html" class="white mr-10">
@@ -2141,8 +2135,8 @@
     <!-- Plugins For This Page -->
     <script src="{{asset('assets/global/vendor/chartist/v4.0.1')}}"></script>
     <script src="{{asset('assets/global/vendor/chartist-plugin-tooltip/v4.0.1')}}"></script>
-    <script src="{{asset('assets/global/vendor/jvectormap/v4.0.1')}}"></script>
-    <script src="{{asset('assets/global/vendor/jvectormap/maps/v4.0.1')}}"></script>
+    <script src="{{asset('assets/global/vendor/jvectormap/jquery-jvectormap-2.0.5.min.js')}}"></script>
+    <script src="{{asset('assets/global/vendor/jvectormap/maps/europe.js')}}"></script>
     <script src="{{asset('assets/global/vendor/matchheight/v4.0.1')}}"></script>
     <script src="{{asset('assets/global/vendor/peity/v4.0.1')}}"></script>
 

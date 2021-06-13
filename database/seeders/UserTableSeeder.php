@@ -22,7 +22,7 @@ class UserTableSeeder extends Seeder
         $user = [
             "firstName" => "Gultekin",
             "lastName" => "Ahmed",
-            "email_phone" => "manyaka_88@abv.bg",
+            "email" => "manyaka_88@abv.bg",
             "gender" => "male",
             "birthday" => "1988-10-17",
             'locate' => 1,

@@ -22,13 +22,15 @@ $categoryList = json_decode(file_get_contents("category.json"), true);
 
 $categories =  [];
 
-foreach ($categoryList as $category) {
+foreach ($categoryList as $key => $category) {
     // echo $subCategory->sub . "\n";
-    echo $category["name"] . "\n";
+    // echo $category["name"] . "\n";
+     echo "$key \n";
 
     if (isset($category["sub"])) {
         foreach ($category["sub"] as  $subCategory) {
-            echo $subCategory . "\n";
+            // echo $subCategory . "\n";
+            echo "$key \n";
         }
     }
 }

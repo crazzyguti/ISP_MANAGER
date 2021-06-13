@@ -1,13 +1,41 @@
-SSID:	host_wifi
-Protocol:	Wi-Fi 5 (802.11ac)
-Security type:	WPA2-Personal
-Network band:	5 GHz
-Network channel:	36
-Link speed (Receive/Transmit):	433/433 (Mbps)
-Link-local IPv6 address:	fe80::b018:4e0f:46fb:afd%4
-IPv4 address:	192.168.0.100
-IPv4 DNS servers:	192.168.0.1
-Manufacturer:	Intel Corporation
-Description:	Intel(R) Dual Band Wireless-AC 3165
-Driver version:	19.51.15.3
-Physical address (MAC):	AC-2B-6E-B1-58-5A
+iconbar/assets/js/Plugin/skintools.min.js
+global/vendor/breakpoints/breakpoints.min.js
+global/vendor/babel-external-helpers/babel-external-helpers.js
+global/vendor/jquery/jquery.min.js
+global/vendor/popper-js/umd/popper.min.js
+global/vendor/bootstrap/bootstrap.min.js
+global/vendor/animsition/animsition.min.js
+global/vendor/mousewheel/jquery.mousewheel.min.js
+global/vendor/asscrollbar/jquery-asScrollbar.min.js
+global/vendor/asscrollable/jquery-asScrollable.min.js
+global/vendor/ashoverscroll/jquery-asHoverScroll.min.js
+global/vendor/waves/waves.min.js
+global/vendor/switchery/switchery.min.js
+global/vendor/intro-js/intro.min.js
+global/vendor/screenfull/screenfull.min.js
+global/vendor/slidepanel/jquery-slidePanel.min.js
+global/vendor/chartist/chartist.min.js
+global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js
+global/vendor/jvectormap/jquery-jvectormap.min.js
+global/vendor/jvectormap/maps/jquery-jvectormap-world-mill-en.js
+global/vendor/matchheight/jquery.matchHeight-min.js
+global/vendor/peity/jquery.peity.min.js
+global/js/State.min.js
+global/js/Component.min.js
+global/js/Plugin.min.js
+global/js/Base.min.js
+global/js/Config.min.js
+iconbar/assets/js/Section/Menubar.min.js
+iconbar/assets/js/Section/Sidebar.min.js
+iconbar/assets/js/Section/PageAside.min.js
+iconbar/assets/js/Plugin/menu.min.js
+global/js/config/colors.min.js
+iconbar/assets/js/config/tour.min.js
+iconbar/assets/js/Site.min.js
+global/js/Plugin/asscrollable.min.js
+global/js/Plugin/slidepanel.min.js
+global/js/Plugin/switchery.min.js
+global/js/Plugin/matchheight.min.js
+global/js/Plugin/jvectormap.min.js
+global/js/Plugin/peity.min.js
+iconbar/assets/examples/js/dashboard/v1.min.js

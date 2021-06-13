@@ -3,4 +3,4 @@
 setlocal DISABLEDELAYEDEXPANSION
 ::php "%~dp0artisan" %*
 
-php "%~dp0..\artisan" tinker
+php "%~dp0..\artisan" tinker %*

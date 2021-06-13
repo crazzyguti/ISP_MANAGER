@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Marker;
+use App\Models\Marker;
 use Illuminate\Http\Request;
 
 class MarkerController extends Controller

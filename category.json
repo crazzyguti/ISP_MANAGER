@@ -38,7 +38,8 @@
     },
     {
         "name": "Business",
-        "sub": ["Advertising",
+        "sub": [
+            "Advertising",
             "Associations",
             "Construction",
             "Customer Service",
@@ -59,7 +60,7 @@
     {
         "name": "Career",
         "sub": [
-            "Business",
+            "smail Business",
             "Jobs &amp; Employment"
         ]
     },
@@ -112,7 +113,6 @@
             "Investing"
         ]
     },
-
     {
         "name": "Food & Beverage",
         "sub": [
@@ -125,20 +125,13 @@
             "Weight Loss"
         ]
     },
-
-    {
-        "name": "Food & Beverage"
-    },
     {
         "name": "Gambling",
         "sub": [
-            "Beauty",
-            "Bodyart",
-            "Cosmetics",
-            "Hair",
-            "Nutrition",
-            "Skin Care",
-            "Weight Loss"
+            "Bingo",
+            "Casinos",
+            "Lottery",
+            "Poker"
         ]
     },
     {
@@ -202,8 +195,8 @@
     },
     {
         "name": "Industry",
-        "sub": ["Aerospace",
-            "Agriculture",
+        "sub": [
+            "Aerospace",
             "Biotechnology",
             "Chemicals",
             "Defence",
@@ -237,12 +230,11 @@
     {
         "name": "News and Media",
         "sub": [
-            "Automobile",
+            "Automobilee",
             "Corporate",
             "Magazines and E Zines",
             "Newspapers",
             "Press Release",
-            "Sports",
             "Technology",
             "Weather"
         ]
@@ -276,7 +268,8 @@
     },
     {
         "name": "Reference",
-        "sub": ["Archives",
+        "sub": [
+            "Archives",
             "Ask an Expert",
             "Dictionaries",
             "Directories",
@@ -288,7 +281,8 @@
     },
     {
         "name": "Science",
-        "sub": ["Agriculture",
+        "sub": [
+            "Agriculture",
             "Astronomy",
             "Biology",
             "Chemistry",
@@ -302,9 +296,7 @@
     {
         "name": "Shopping",
         "sub": [
-            "Antiques",
             "Collectibles",
-            "Auctions",
             "Classifieds",
             "Clothing",
             "Consumer Electronics",
@@ -317,11 +309,10 @@
             "Gifts",
             "Home &amp; Family",
             "Jewelry",
-            "Kids",
             "Music",
             "Office Products",
             "Publications",
-            "Sports",
+            "Sports Shop",
             "Weddings"
         ]
     },

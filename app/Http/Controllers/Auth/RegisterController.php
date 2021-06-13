@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use App\Models\Role;
-use App\Models\Location;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -20,7 +20,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-     */
+    */
 
     use RegistersUsers;
 
@@ -29,19 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
-
-    protected $validColumns = [
-        'firstName'    =>    'required|string|max:20',
-        'lastName'     =>    'required|string|max:20',
-        'email_phone'  =>    'required|string|max:200|unique:users',
-        //'phone'      =>    'required|numeric|digits_between:10,13|unique:users',
-        'birthday'     =>    'required|date|max:20',
-        'gender'       =>    'required|string|max:10',
-        'password'     =>    'required|string|min:6|confirmed',
-        "location"     =>    "required|int",
-    ];
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -61,42 +49,25 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, $this->validColumns);
-    }
-
-    /**
-     * Show Register form
-     *
-     * @return void
-     */
-    public function showRegistrationForm()
-    {
-        $locations = Location::all();
-        return view('auth.register', ["locations" => $locations]);
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return App\Models\User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
-
-
-        $user = User::create([
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
-            'email_phone' => $data['email_phone'],
-            //'phone' => $data['phone'],
-            'birthday' => $data['birthday'],
-            'gender' => $data['gender'],
-            'password' => bcrypt($data['password']),
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
         ]);
-        $user
-            ->roles()
-            ->attach(Role::where('name', 'Administrator')->first());
-        return $user;
     }
 }

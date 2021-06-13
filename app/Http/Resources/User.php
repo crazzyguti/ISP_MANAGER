@@ -19,13 +19,13 @@ class User extends JsonResource
 
         return [
             'fullName' => $this->fullName,
-            'email_phone' => $this->email_phone,
+            'email' => $this->email,
             'gender' => $this->gender,
             'roles' => $this->getRoleNames(),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'devices' => $this->devices,
-            "locate" => $this->location
+            "locate" => $this->location,
         ];
     }
 }

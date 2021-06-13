@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="manifest" href="{{asset("manifest.webmanifest")}}">
 
-
+    <link href="{{asset("images/favicon.png") }}" rel="icon">
     @include('headers.style')
     @include('headers.script')
     @yield("css")

@@ -1,4 +1,4 @@
-@extends('layouts.client')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -18,12 +18,12 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email_phone" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email_phone" type="text" class="form-control @error('email_phone') is-invalid @enderror" name="email_phone" value="{{ old('email_phone') }}" required autocomplete="email_phone" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email_phone')
+                                @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

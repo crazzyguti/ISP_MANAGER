@@ -37,7 +37,7 @@ $factory->define(User::class, function (Faker $faker) {
     $users =  [
         'firstName' => $faker->firstName($gender),
         'lastName' => $faker->lastName($gender),
-        'email_phone' => $email_phone,
+        'email' => $email_phone,
         "birthday" => $faker->date(),
         "gender" => $gender,
         'email_verified_at' => $today,

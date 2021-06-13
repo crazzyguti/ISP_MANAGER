@@ -5,7 +5,7 @@
         "css/style.css",
         // "vendor/datatable/datatables.min.css"
         // "css/reasy-ui.css"
-         "vendor/jsoneditor/dist/jsoneditor.css",
+        //  "vendor/jsoneditor/dist/jsoneditor.css",
     ];
 
 @endphp

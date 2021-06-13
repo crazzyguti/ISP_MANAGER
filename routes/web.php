@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,11 +20,17 @@ use Illuminate\Http\Request;
 |
 */
 
+require __DIR__.'/auth.php';
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('homeindex');
 });
 
-Auth::routes();
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -50,8 +57,6 @@ Route::get("/maps", function () {
 Route::get("/demo", "freeController@index");
 Route::get("/free", "freeController@getServerData");
 Route::get("/jsonEditor", "freeController@jsonEditor");
-Route::get("/jsonEditor", "freeController@jsonEditor");
-// Route::get("/free2", "freeController@getServerData");
 
 route::get("/freeUser/{id}", function ($id) {
     $user = User::find($id);
