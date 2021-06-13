@@ -35,9 +35,6 @@
         {
             "name": "routes",
             "path": "../routes"
-        },
-        {
-            "path": "../../BizLand"
         }
     ],
     "settings": {
