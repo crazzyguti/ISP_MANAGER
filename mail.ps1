@@ -1,8 +1,7 @@
-
-Param([string]$Computername = $env:COMPUTERNAME)
+$Computername = $env:COMPUTERNAME;
 
 $head = @"
-<Title>Process Report: $($computername.ToUpper())</Title>
+<Title>Process Report: $($Computername.ToUpper())</Title>
 <style>
 Body {
 font-family: "Tahoma", "Arial", "Helvetica", sans-serif;
@@ -33,11 +32,8 @@ background-color:#0000FF;
 "@
 
 #convert output to html as a string
-$html = Get-Process -ComputerName $Computername | Select-Object Handles, NPM, PM, WS, VM, ID, Name |
-ConvertTo-Html -Head $head -PreContent "<h2>Process Report for $($Computername.ToUpper())</h2>" -PostContent "<h6> report run $(Get-Date)</h6>" |
-Out-String
-$groups = Get-Process -ComputerName $Computername | Select-Object Handles, NPM, PM, WS, VM, ID, Name | Group-Object Name
-$groups
+$html = Get-Process | Select-Object Handles, NPM, PM, WS, VM, ID, Name |
+ConvertTo-Html -Head $head -PreContent "<h2>Process Report for $($Computername.ToUpper())</h2>" -PostContent "<h6> report run $(Get-Date)</h6>" | Out-String
 
 $Email =
 "manyaka_88@abv.bg",
@@ -52,9 +48,12 @@ $mailServers = Get-Content  ".\mailServers.json" | ConvertFrom-Json;
 
 $tto = $Email | Get-Random;
 
-write-host $tto -backgroundColor "Yellow" -ForegroundColor "DarkRed";
+# Write-Host $tto -BackgroundColor "Yellow" -ForegroundColor "DarkRed";
 
-$selectedMail = $mailServers.mails[0];
+$selectedMail = $mailServers.mails[1];
+
+$mailServers.mails[1]
+
 
 $gmailCred = Get-Credential -Credential $selectedMail.username
 #send as mail body

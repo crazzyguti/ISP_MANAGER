@@ -10,8 +10,8 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-./mailServers.json
-./category.json
-./*.txt
-./mx.json
-./*.ps1
+mailServers.json
+category.json
+*.txt
+mx.json
+*.ps1
