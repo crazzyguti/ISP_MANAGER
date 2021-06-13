@@ -1,11 +1,6 @@
-<style>
-    p {
-        text-align: center;
-    }
-</style>
 <div>
 
-<p><img src="https://laravel.com/img/logomark.min.svg" width="100">
+<p align="center"><img src="https://laravel.com/img/logomark.min.svg" width="100">
 </p>
 
 <p>
